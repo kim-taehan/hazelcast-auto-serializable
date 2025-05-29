@@ -19,11 +19,13 @@
 ## 🛠 사용 예시
 
 ### Annotated 클래스 정의
+- 추상화 클래스로 등록하는 것을 추천
+- 접근자는 protected 로 정의 (필수)
 ```java
 @AutoSerializable(factoryId = 2, classId = 41)
-public class SampleVo2 {
-    private int age;
-    private String name;
+public abstract class SampleVo2 {
+    protected int age; 
+    protected String name;
 }
 ```
 
@@ -105,7 +107,9 @@ public @interface AutoDataSerializable {
 ### 📌 적용방법
 
 #### maven
-- nexus or local nexus 등록 후 사용 
+- nexus or local nexus 등록 후 사용 '=
+- mvn install:install-file -Dfile=C:\libs\hazelcast-auto-serializable-1.0.0.jar -DgroupId=developx -DartifactId=auto-serializable-processor -Dversion=1.0.0 -Dpackaging=jar
+
 ```xml
 <dependencies>
     <dependency>
